@@ -1,0 +1,24 @@
+{
+    "name": "exitdump/laravel-media",
+    "autoload": {
+        "psr-4": {
+            "Exitdump\\LaravelMedia\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "exitdump",
+            "email": "jahidhasan100101@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Exitdump\\LaravelMedia\\LaravelMediaServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
