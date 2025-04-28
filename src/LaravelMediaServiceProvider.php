@@ -8,6 +8,9 @@ class LaravelMediaServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        $this->app->singleton('laravel-media', function ($app) {
+            return new LaravelMedia();
+        });
         // $this->mergeConfigFrom(
         //     __DIR__.'/../config/laravel-media.php', 'laravel-media'
         // );
