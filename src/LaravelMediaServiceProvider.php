@@ -15,6 +15,8 @@ class LaravelMediaServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../config/laravel-media.php', 'laravel-media'
         );
+
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     public function boot()
