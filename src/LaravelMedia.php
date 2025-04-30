@@ -4,7 +4,7 @@ namespace Exitdump\LaravelMedia;
 
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
- use Exitdump\LaravelMedia\MediaHandler;
+use Exitdump\LaravelMedia\MediaHandler;
 
 class LaravelMedia
 {
