@@ -21,3 +21,12 @@ A WordPress-like media management system for Laravel with modal library, image p
 
 ```bash
 composer require exitdump/laravel-media
+
+
+
+### Config options
+
+- `default_disk` — The Laravel filesystem disk to store uploaded files. Default: `public`
+- `path_prefix` — Path prefix for storage. Default: `media`
+- `default_collection` — Used when no collection is specified
+- `preserve_original_name` — If true, uploaded file will keep its original name
