@@ -3,6 +3,8 @@
 namespace Exitdump\LaravelMedia;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
+
 
 class LaravelMediaServiceProvider extends ServiceProvider
 {
@@ -31,5 +33,19 @@ class LaravelMediaServiceProvider extends ServiceProvider
         //     ]);
         // }
         // dd('working');
+
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-media');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/exitdump/laravel-media'),
+        ], 'laravel-media-views');
+    
+        $this->publishes([
+            __DIR__.'/../resources/js/laravel-media.js' => public_path('vendor/laravel-media/laravel-media.js'),
+            __DIR__.'/../resources/css/laravel-media.css' => public_path('vendor/laravel-media/media.css'),
+        ], 'laravel-media-assets');
+    
+        Blade::component('media-picker', \Exitdump\LaravelMedia\View\Components\LaravelMediaPicker::class);
     }
 }
