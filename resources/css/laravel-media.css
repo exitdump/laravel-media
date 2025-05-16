@@ -1,0 +1,23 @@
+.media-modal {
+    position: fixed; top: 10%; left: 10%;
+    background: #fff; border: 1px solid #ccc;
+    padding: 20px; z-index: 9999;
+    width: 80%; height: 70%;
+    overflow: auto;
+}
+
+.hidden { display: none; }
+
+.media-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.media-thumb img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    cursor: pointer;
+}
