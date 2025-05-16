@@ -21,7 +21,7 @@ A WordPress-like media management system for Laravel with modal library, image p
 
 ```bash
 composer require exitdump/laravel-media
-
+```
 
 
 ### Config options
