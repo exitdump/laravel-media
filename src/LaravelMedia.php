@@ -10,7 +10,8 @@ class LaravelMedia
 {
     protected $handler;
 
-    public function init(MediaHandler $handler){
+    public function __construct(MediaHandler $handler)
+    {
         $this->handler = $handler;
     }
 
