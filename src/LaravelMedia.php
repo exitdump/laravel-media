@@ -9,6 +9,8 @@ use Exitdump\LaravelMedia\MediaHandler;
 class LaravelMedia
 {
     protected $handler;
+    protected $collection = 'default';
+    protected $model = null;
 
     public function __construct(MediaHandler $handler)
     {
@@ -18,18 +20,22 @@ class LaravelMedia
 
     public function upload(UploadedFile $file)
     {
-        $user = User::find(1);
-        return $this->handler->upload($file, $user);
+        return $this->handler->upload($file, $this->model, $this->collection);
     }
     
-    // public function associateWith($model)
-    // {
-    //     $this->model = $model;
-    //     return $this;
-    // }
+    public function associateWith($model)
+    {
+        $this->model = $model;
+        return $this;
+    }
     
-    // public function toCollection($collection)
-    // {
-    //     // Your implementation
-    // }
+    public function toCollection($collection)
+    {
+        $this->collection = $collection;
+        return $this;
+    }
+
+    public function test(){
+        dd('test pass from pkg entry point');
+    }
 }
