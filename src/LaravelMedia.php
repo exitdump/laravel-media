@@ -8,13 +8,12 @@ use Exitdump\LaravelMedia\MediaHandler;
 
 class LaravelMedia
 {
-    protected $handler;
     protected $collection = 'default';
     protected $model = null;
 
-    public function __construct(MediaHandler $handler)
+    public function __construct(protected MediaHandler $handler)
     {
-        $this->handler = $handler;
+        // silence is the best answer
     }
 
 

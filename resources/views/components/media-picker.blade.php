@@ -16,11 +16,3 @@
         </div>
     </div>
 </div>
-
-<link rel="stylesheet" href="{{ asset('vendor/laravel-media/media.css') }}">
-<script src="{{ asset('vendor/laravel-media/laravel-media.js') }}"></script>
-<script>
-    const mediaBrowserUrl = "{{ route('laravel-media.browser') }}";
-    const mediaUploadUrl = "{{ route('laravel-media.upload') }}";
-    const csrf = '{{ csrf_token() }}';
-</script>

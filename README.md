@@ -1,22 +1,18 @@
 # Laravel Media \:frame\_with\_picture:
 
-[![Latest Version](https://img.shields.io/packagist/v/exitdump/laravel-media.svg?style=flat-square)](https://packagist.org/packages/exitdump/laravel-media)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
-
-A WordPress-like media management system for Laravel with modal library, image processing, and cloud storage support.
-
-![Media Library Modal Demo](https://user-images.githubusercontent.com/.../media-library-preview.gif)
+A WordPress-style media management system for Laravel with modal library, image processing, and optimized frontend component support.
 
 ## Features ✨
 
 * 🖼️ **WordPress-style Media Library Modal**
+
+* ⚡ **Blade Component for Easy Integration**
 * 📁 **Multiple Storage Disks** (Local, S3, etc.)
 * ✨ **Image Processing** (Thumbnails, Cropping)
-* 🔗 **Morphable Media Attachments**
-* ✨ **Frontend Media Picker Component**
+* 🔗 **Morphable Media Attachments** via Trait
 * 🚀 **AJAX Uploads with Progress**
 * 🔍 **Search & Filter Media**
-* 🎨 **Easy Blade Component Integration**
+* 🎨 **Frontend UI Fully Packaged**
 
 ## Installation 💻
 
@@ -24,37 +20,60 @@ A WordPress-like media management system for Laravel with modal library, image p
 composer require exitdump/laravel-media
 ```
 
-Then publish the assets:
+### Publish Assets & Config (Optional)
 
 ```bash
-php artisan vendor:publish --tag=laravel-media-assets
+php artisan vendor:publish --tag=laravel-media-config
 ```
 
-## Usage ✨
+## Usage ⚙️
 
-Add the media picker component in your Blade view:
+### 1. Use the Blade Component
 
 ```blade
-<x-media-picker name="media_id" />
+<x-media-picker name="thumbnail_id" />
 ```
 
-This will render a button. Clicking it opens a modal with existing media and an upload form.
+This will open the modal with your media library and allow image selection.
 
-## Configuration Options
+### 2. Make Models Mediable
 
-In `config/laravel-media.php`:
+```php
+use Exitdump\LaravelMedia\Traits\HasMedia;
 
-* `default_disk` — Filesystem disk to store uploaded files. Default: `public`
-* `path_prefix` — Path prefix in storage. Default: `media`
-* `default_collection` — Used if no collection specified
-* `preserve_original_name` — Whether to keep original filename
+class Post extends Model
+{
+    use HasMedia;
+    // ...
+}
+```
 
-## Advanced
+### 3. Access Media
 
-* Auto-generates responsive UI
-* Built-in routes, views, and JS/CSS assets
-* Easily extendable via Livewire or AlpineJS
+```php
+$post = Post::find(1);
+$media = $post->media;
+```
 
-## License
+### Configuration Options
 
-MIT
+```php
+return [
+    'default_disk' => 'public',
+    'path_prefix' => 'media',
+    'default_collection' => 'default',
+    'preserve_original_name' => false,
+];
+```
+
+## Versioning 📦
+
+We follow [Semantic Versioning](https://semver.org/):
+
+* `v1.0.0`: Initial release
+* `v1.0.0`: First stable release
+* `v1.1.1`: Component & UX improvements, no breaking changes
+
+## License 📄
+
+MIT © [Exitdump](https://github.com/exitdump)
