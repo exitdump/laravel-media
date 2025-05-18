@@ -5,6 +5,21 @@ use Exitdump\LaravelMedia\Models\Media;
 use Exitdump\LaravelMedia\MediaHandler;
 
 Route::prefix('laravel-media')->name('laravel-media.')->group(function () {
+
+    Route::get('/assets/styles.css', function () {
+        return response()->file(__DIR__.'/../resources/css/laravel-media.css', [
+            'Content-Type' => 'text/css',
+        ]);
+       
+    })->name('assets.css');
+
+    Route::get('/assets/scripts.js', function () {
+        return response()->file(__DIR__.'/../resources/js/laravel-media.js', [
+            'Content-Type' => 'application/javascript',
+        ]);
+    })->name('assets.js');
+
+
     Route::get('/browser', function () {
         $media = Media::latest()->get();
         return view('laravel-media::partials.media-grid', compact('media'));
