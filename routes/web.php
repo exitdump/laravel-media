@@ -19,7 +19,6 @@ Route::prefix('laravel-media')->name('laravel-media.')->group(function () {
         ]);
     })->name('assets.js');
 
-
     Route::get('/browser', function () {
         $media = Media::latest()->get();
         return view('laravel-media::partials.media-grid', compact('media'));

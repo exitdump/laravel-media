@@ -5,6 +5,7 @@ A WordPress-style media management system for Laravel with modal library, image 
 ## Features ✨
 
 * 🖼️ **WordPress-style Media Library Modal**
+
 * ⚡ **Blade Component for Easy Integration**
 * 📁 **Multiple Storage Disks** (Local, S3, etc.)
 * ✨ **Image Processing** (Thumbnails, Cropping)
