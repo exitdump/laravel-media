@@ -41,10 +41,18 @@ class LaravelMediaServiceProvider extends ServiceProvider
             __DIR__.'/../resources/views' => resource_path('views/exitdump/laravel-media'),
         ], 'laravel-media-views');
     
-        $this->publishes([
-            __DIR__.'/../resources/js/laravel-media.js' => public_path('vendor/laravel-media/laravel-media.js'),
-            __DIR__.'/../resources/css/laravel-media.css' => public_path('vendor/laravel-media/media.css'),
-        ], 'laravel-media-assets');
+        // $this->publishes([
+        //     __DIR__.'/../resources/js/laravel-media.js' => public_path('vendor/laravel-media/laravel-media.js'),
+        //     __DIR__.'/../resources/css/laravel-media.css' => public_path('vendor/laravel-media/media.css'),
+        // ], 'laravel-media-assets');
+
+        Blade::directive('laravelMediaStyles', function () {
+            return "<?php echo view('laravel-media::includes.styles'); ?>";
+        });
+    
+        Blade::directive('laravelMediaScripts', function () {
+            return "<?php echo view('laravel-media::includes.scripts'); ?>";
+        });
     
         Blade::component('media-picker', \Exitdump\LaravelMedia\View\Components\LaravelMediaPicker::class);
     }
