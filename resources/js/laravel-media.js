@@ -1,3 +1,11 @@
+const baseUrl = window.location.origin;
+const mediaBrowserUrl = `${baseUrl}/laravel-media/browser`
+const mediaUploadUrl = `${baseUrl}/laravel-media/upload`
+
+ const getCsrfToken = () => {
+    return document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+}     
+
 function openMediaModal() {
     document.querySelector('#mediaModal').classList.remove('hidden');
     fetchMedia();
@@ -21,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(mediaUploadUrl, {
             method: 'POST',
             body: formData,
-            headers: { 'X-CSRF-TOKEN': csrf }
+            headers: { 'X-CSRF-TOKEN': getCsrfToken() }
         }).then(() => fetchMedia());
     });
 });
