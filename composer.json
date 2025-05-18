@@ -1,5 +1,7 @@
 {
     "name": "exitdump/laravel-media",
+    "description": "WordPress-style media uploader for Laravel",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Exitdump\\LaravelMedia\\": "src/"
